@@ -47,3 +47,19 @@ jobs:
 
       - name: Run Unit Tests
         run: ./gradlew testDebugUnitTest
+        
+      - name: Sign artifact
+        id: signArtifact
+        uses: r0adkll/sign-android-release@v1.0.1
+        with:
+          releaseDirectory: app/build/outputs/apk/debug
+          alias: ${{ secrets.KEY_ALIAS }}
+          signingKeyBase64: ${{ secrets.DEBUG_KEY_BASE64 }}
+          keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+
+      - name: Upload our APK
+        uses: actions/upload-artifact@v2.2.0
+        with:
+          name: Debug artifact
+          path: app/build/outputs/apk/debug/app-debug.apk
