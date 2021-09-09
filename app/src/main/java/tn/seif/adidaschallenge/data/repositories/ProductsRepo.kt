@@ -128,7 +128,8 @@ open class ProductsRepo @Inject constructor(
                     // If the server fails suddenly, update the connection status of the NetworkListener.
                     networkListener.updateConnectionState(false)
                 }
-                is DatabaseException -> throw e
+                is DatabaseException,
+                is ServerResponseException -> throw e
                 else -> throw ServerException(e)
             }
         }
@@ -154,7 +155,8 @@ open class ProductsRepo @Inject constructor(
                     // If the server fails suddenly, update the connection status of the NetworkListener.
                     networkListener.updateConnectionState(false)
                 }
-                is DatabaseException -> throw e
+                is DatabaseException,
+                is ServerResponseException -> throw e
                 else -> throw ServerException(e)
             }
         }
