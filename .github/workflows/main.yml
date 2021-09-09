@@ -63,13 +63,13 @@ jobs:
         with:
           bump_version_scheme: minor
           
-      - name: Create release and upload apk
-        uses: underwindfall/create-release-with-debugapk@v2.0.0
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          asset_path: app/build/outputs/apk/debug/app-debug.apk
-          asset_name: app_adidas_debug_${{ steps.release.outputs.version }}.apk
-          asset_content_type: application/zip
+          draft: false
+          prerelease: false
