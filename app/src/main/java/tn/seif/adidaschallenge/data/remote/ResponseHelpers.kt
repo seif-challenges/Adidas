@@ -30,3 +30,10 @@ class ServerResponseException(
     errorCode: Int,
     responseBody: String
 ) : Exception("Error response from server with code: $errorCode:\n\n$responseBody")
+
+/**
+ * An exception wrapper for server exceptions.
+ *
+ * @param e - The server exception.
+ */
+class ServerException(e: Exception): Exception(e)

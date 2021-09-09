@@ -1,9 +1,12 @@
 package tn.seif.adidaschallenge.data.repositories
 
 import timber.log.Timber
+import tn.seif.adidaschallenge.data.local.DatabaseException
+import tn.seif.adidaschallenge.data.local.attemptDatabase
 import tn.seif.adidaschallenge.data.local.daos.ReviewsDao
 import tn.seif.adidaschallenge.data.models.Review
 import tn.seif.adidaschallenge.data.remote.ReviewsApi
+import tn.seif.adidaschallenge.data.remote.ServerException
 import tn.seif.adidaschallenge.data.remote.ServerResponseException
 import tn.seif.adidaschallenge.data.remote.requestAnswer
 import tn.seif.adidaschallenge.utils.ErrorHandler
@@ -146,18 +149,23 @@ open class ReviewsRepo @Inject constructor(
                     // If the server fails suddenly, update the connection status of the NetworkListener.
                     networkListener.updateConnectionState(false)
                 }
-                else -> throw e
+                is DatabaseException -> throw e
+                else -> throw ServerException(e)
             }
         }
     }
 
     private suspend fun updateDatabase(productId: String, reviews: List<Review>) {
-        reviewsDao.deleteAllForProduct(productId)
-        reviewsDao.insertAll(reviews)
+        attemptDatabase {
+            reviewsDao.deleteAllForProduct(productId)
+            reviewsDao.insertAll(reviews)
+        }
     }
 
     private suspend fun updateDatabase(review: Review) {
-        reviewsDao.deleteReview(review.id)
-        reviewsDao.insert(review)
+        attemptDatabase {
+            reviewsDao.deleteReview(review.id)
+            reviewsDao.insert(review)
+        }
     }
 }
