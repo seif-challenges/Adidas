@@ -30,7 +30,8 @@ android {
             buildConfigField "String", "REVIEWS_PORT", '"3002"'
             testCoverageEnabled = true
         }
-        release {
+        // Production variant should have different values in real world.
+        production {
             minifyEnabled false
             buildConfigField "String", "API_BASE_URL", '"http://10.0.2.2"'
             buildConfigField "String", "PRODUCTS_PORT", '"3001"'
