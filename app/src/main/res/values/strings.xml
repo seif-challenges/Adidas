@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">AdidasChallenge</string>
+    <string name="ok">OK</string>
+    <string name="feature_coming_soon">Feature coming soon!</string>
+
+    <!-- region Background Syncing -->
+    <string name="syncing_notification_title">Syncing pending reviews</string>
+    <string name="syncing_notification_message">%1$d out of %2$d synced</string>
+    <string name="scanning_pending_notification_title">Scanning pending reviews</string>
+    <string name="syncing_notification_channel_name">Adidas background syncing service</string>
+    <!-- endregion -->
+
+    <!-- region Main-->
+    <string name="offline_dialog_title">App is offline</string>
+    <string name="offline_dialog_message">The app was not able to establish a connection with the server, this can be due to an internet disconnection on your device, or a failure in our servers.\n\nAs a result the data that the app is displaying could be outdated, but you still can attempt to refresh it.</string>
+    <string name="offline_dialog_refresh">Refresh</string>
+    <string name="connection_to_server_lost">Connection to server lost</string>
+    <!-- endregion -->
+
+   <!-- region Product Details -->
+    <string name="initial_reviews_value">0.0</string>
+    <string name="initial_reviews_count">(0 reviews)</string>
+    <plurals name="reviews">
+        <item quantity="one">(%d review)</item>
+        <item quantity="other">(%d reviews)</item>
+    </plurals>
+    <string name="reviews_empty_message">No reviews for this product at the moment</string>
+    <string name="reviews_error_message">An error occurred while loading reviews</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="product_details_initial_title">Product details</string>
+    <string name="product_details_price_format">%1$s %2$.2f</string>
+    <!-- endregion -->
+
+    <!-- region Add Review -->
+    <string name="add_review_error_message">An error just occurred, please try again!</string>
+    <string name="add_review">Add review</string>
+    <string name="add_review_dialog_title">Your opinion matters</string>
+    <string name="add_review_offline_dialog_message">We are not able to connect to our servers at the moment.\n\nYour review have been stored locally, and will be synced as soon as we have a connection.</string>
+
+    <!-- endregion -->
+
+    <!-- region Search -->
+    <string name="search_placeholder">Gazelle, Adicolor, etc…</string>
+    <!-- endregion -->
+
+    <!-- region Products -->
+    <string name="products_empty_title">No products found!</string>
+    <string name="products_empty_message">Do you think this shouldn\'t be the case?\nYou can report it to us to investigate.</string>
+    <string name="report">Report</string>
+    <string name="product_item_price_format">%1$s %2$.2f</string>
+    <string name="products_error_title">Oops!</string>
+    <string name="products_error_message">Something isn\'t right.\n\nWe apologize for the inconvenience! Please try again later while our team investigates the issue.</string>
+    <plurals name="product_awaits_your">
+        <item quantity="one">product awaits you</item>
+        <item quantity="other">products awaits you</item>
+    </plurals>
+    <plurals name="product_found">
+        <item quantity="one">product found</item>
+        <item quantity="other">products found</item>
+    </plurals>
+    <!-- endregion -->
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "331457506055",
+    "project_id": "adidas-challenge-9d19d",
+    "storage_bucket": "adidas-challenge-9d19d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:331457506055:android:09b877e48e9058e83573a2",
+        "android_client_info": {
+          "package_name": "tn.seif.adidaschallenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "331457506055-7fk97gsa8e0uhgdgfeqlutrv4mvvha00.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFhsIttIFYhYEEaCvHThwmsR8-tdN034w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "331457506055-7fk97gsa8e0uhgdgfeqlutrv4mvvha00.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="button_padding_horizontal">20dp</dimen>
+    <dimen name="status_and_navigation">80dp</dimen>
+    <dimen name="status_bar_size">24dp</dimen>
+    <dimen name="navigation_height">56dp</dimen>
+
+    <!-- region text -->
+    <dimen name="title">20sp</dimen>
+    <dimen name="sub_title">18sp</dimen>
+    <dimen name="important">16sp</dimen>
+    <dimen name="normal">14sp</dimen>
+    <!-- endregion -->
+</resources>

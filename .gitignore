@@ -1,0 +1,87 @@
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+distro/
+dist/
+build/
+target/
+CollectorAndroid/res/values/buildinfo.xml
+
+# temp folders and files
+tmp/**
+temp/**
+*.tmp
+*.bak
+**~$*.docx
+**~$*.xlsx
+
+# Local properties files:
+local.properties
+ant.properties
+release.properties
+crashlytics-build.properties
+crashlytics.properties
+fabric.properties
+/CollectorAndroid/res/values/com_crashlytics_export_strings.xml
+
+# Demo/test Sapelli projects
+/CollectorAndroid/*.excites
+/CollectorAndroid/*.sap
+/CollectorAndroid/res/raw/demo.sap
+/CollectorAndroid/res/raw/demo.excites
+/CollectorAndroid/assets/demo.excites
+/CollectorAndroid/assets/demo.sap
+
+# Keystore files:
+*.ks
+
+# Beta release notes:
+/CollectorAndroid/beta-notes.txt
+
+# Misc
+/desktop.ini
+
+# Why are we ignoring this?
+/Dependencies/Android FileChooser/lint.xml
+
+
+.dropbox.attr
+/linecount.bat
+/CollectorAndroid/*.log
+/CollectorAndroid/src/main/assets/paperwork.json
+
+
+# gradle and Android Studio
+# Intellij IDEA (see https://intellij-support.jetbrains.com/entries/23393067)
+# User-specific configurations
+.idea/libraries/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/compiler.xml
+.idea/copyright/profiles_settings.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/scopes/scope_settings.xml
+.idea/vcs.xml
+*.iml
+.gradle
+/local.properties
+.DS_Store
+/build
+/captures
+/.idea/markdown-navigator/profiles_settings.xml
+/.idea/sonarlint/issuestore/index.pb
+/logs
+/.idea/uiDesigner.xml
+/.idea/inspectionProfiles
