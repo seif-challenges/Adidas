@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Debug workflow
 
 # Controls when the workflow will run
 on:
@@ -72,7 +72,7 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: app/build/outputs/apk/debug/app-debug.apk
-          asset_name: app_adidas_debug_${{ steps.release.outputs.version }}.apk
+          asset_name: app_adidas_${{ steps.release.outputs.version }}.apk
           tag: ${{ steps.release.outputs.version }}
           overwrite: true
           body: "Test debug"
