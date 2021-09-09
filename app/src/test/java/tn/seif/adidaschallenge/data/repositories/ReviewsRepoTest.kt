@@ -12,6 +12,7 @@ import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
 import retrofit2.Response
 import tn.seif.adidaschallenge.BaseTest
+import tn.seif.adidaschallenge.data.local.DatabaseException
 import tn.seif.adidaschallenge.data.local.daos.ReviewsDao
 import tn.seif.adidaschallenge.data.models.Review
 import tn.seif.adidaschallenge.data.remote.ReviewsApi
@@ -247,7 +248,7 @@ class ReviewsRepoTest : BaseTest() {
             verify(reviewsDao).deleteReview(any())
             verify(errorHandler).handle(any())
             assert(answer is Answer.Failure)
-            assert((answer as Answer.Failure).error is IllegalStateException)
+            assert((answer as Answer.Failure).error is DatabaseException)
         }
     }
 

@@ -1,9 +1,12 @@
 package tn.seif.adidaschallenge.data.repositories
 
 import timber.log.Timber
+import tn.seif.adidaschallenge.data.local.DatabaseException
+import tn.seif.adidaschallenge.data.local.attemptDatabase
 import tn.seif.adidaschallenge.data.local.daos.ProductsDao
 import tn.seif.adidaschallenge.data.models.Product
 import tn.seif.adidaschallenge.data.remote.ProductsApi
+import tn.seif.adidaschallenge.data.remote.ServerException
 import tn.seif.adidaschallenge.data.remote.ServerResponseException
 import tn.seif.adidaschallenge.data.remote.requestAnswer
 import tn.seif.adidaschallenge.utils.ErrorHandler
@@ -44,7 +47,8 @@ open class ProductsRepo @Inject constructor(
         } catch (e: Exception) {
             errorHandler.handle(e)
             when (e) {
-                is ServerResponseException -> {
+                is ServerResponseException,
+                is ServerException -> {
                     val databaseData = productsDao.getAllProducts()
 
                     // return the API error only if the database is also empty
@@ -89,7 +93,8 @@ open class ProductsRepo @Inject constructor(
             // Print the exception stack trace, and log it in Crashlytics.
             errorHandler.handle(e)
             when (e) {
-                is ServerResponseException -> {
+                is ServerResponseException,
+                is ServerException -> {
                     val databaseData = productsDao.getProductById(id)
 
                     // return the API error only if the product can't be found in database as well
@@ -123,7 +128,9 @@ open class ProductsRepo @Inject constructor(
                     // If the server fails suddenly, update the connection status of the NetworkListener.
                     networkListener.updateConnectionState(false)
                 }
-                else -> throw e
+                is DatabaseException,
+                is ServerResponseException -> throw e
+                else -> throw ServerException(e)
             }
         }
     }
@@ -148,18 +155,24 @@ open class ProductsRepo @Inject constructor(
                     // If the server fails suddenly, update the connection status of the NetworkListener.
                     networkListener.updateConnectionState(false)
                 }
-                else -> throw e
+                is DatabaseException,
+                is ServerResponseException -> throw e
+                else -> throw ServerException(e)
             }
         }
     }
 
     private suspend fun updateDatabase(products: List<Product>) {
-        productsDao.deleteAll()
-        productsDao.insertAll(products)
+        attemptDatabase {
+            productsDao.deleteAll()
+            productsDao.insertAll(products)
+        }
     }
 
     private suspend fun updateDatabase(product: Product) {
-        productsDao.delete(product.id)
-        productsDao.insert(product)
+        attemptDatabase {
+            productsDao.delete(product.id)
+            productsDao.insert(product)
+        }
     }
 }
