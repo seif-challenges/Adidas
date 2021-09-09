@@ -43,7 +43,7 @@ jobs:
           arguments: assembleRelease
           
       - name: Run Kotlin Linter
-        run: ./gradlew ktlintStagingDebugCheck
+        run: ./gradlew ktlint
 
       - name: Run Unit Tests
-        run: ./gradlew testStagingDebugUnitTest
+        run: ./gradlew testDebugUnitTest
