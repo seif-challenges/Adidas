@@ -36,4 +36,4 @@ class ServerResponseException(
  *
  * @param e - The server exception.
  */
-class ServerException(e: Exception): Exception(e)
+class ServerException(e: Exception) : Exception(e)
