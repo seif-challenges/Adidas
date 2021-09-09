@@ -27,4 +27,3 @@ fun <V : BaseViewModel> Fragment.viewModel(vmClass: KClass<V>) =
             }
         }
     }
-

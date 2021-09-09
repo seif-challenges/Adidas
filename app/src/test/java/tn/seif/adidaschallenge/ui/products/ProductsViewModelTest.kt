@@ -12,7 +12,7 @@ import tn.seif.adidaschallenge.utils.models.Answer
 import tn.seif.adidaschallenge.utils.models.State
 
 @ExperimentalCoroutinesApi
-class ProductsViewModelTest: BaseTest() {
+class ProductsViewModelTest : BaseTest() {
 
     private val productsRepo: ProductsRepo = mock()
     private val vm = ProductsViewModel(productsRepo)

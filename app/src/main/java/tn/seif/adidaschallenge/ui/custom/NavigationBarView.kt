@@ -14,7 +14,6 @@ import tn.seif.adidaschallenge.databinding.ViewNavigationBarBinding
 import tn.seif.adidaschallenge.utils.DefaultTextWatcher
 import tn.seif.adidaschallenge.utils.DefaultTransitionListener
 
-
 /**
  * View presenting the navigation bar of the application containing an animated search input.
  */

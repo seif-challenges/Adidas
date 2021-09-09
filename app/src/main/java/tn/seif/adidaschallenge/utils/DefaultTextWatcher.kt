@@ -13,7 +13,7 @@ import android.text.TextWatcher
 class DefaultTextWatcher(
     private val beforeTextChanged: ((CharSequence?) -> Unit)? = null,
     private val onTextChanged: ((CharSequence?) -> Unit)? = null,
-    private val afterTextChanged: ((CharSequence?) -> Unit)? = null,
+    private val afterTextChanged: ((CharSequence?) -> Unit)? = null
 ) : TextWatcher {
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
         beforeTextChanged?.invoke(s)

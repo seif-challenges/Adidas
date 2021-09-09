@@ -22,5 +22,4 @@ interface ProductsApi {
         @Path("id")
         id: String
     ): Response<Product>
-
 }

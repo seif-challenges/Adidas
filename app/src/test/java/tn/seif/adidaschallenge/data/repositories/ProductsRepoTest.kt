@@ -26,7 +26,7 @@ class ProductsRepoTest : BaseTest() {
 
     private val productsRepo = ProductsRepo(productsDao, productsApi, networkListener, errorHandler)
 
-   /* region getProducts() */
+    /* region getProducts() */
     @Test
     fun `Should update database, update networkListener connection state to true and return Answer Success with data from database when fetching products from API succeeds`() {
         runBlockingTest {
@@ -180,7 +180,10 @@ class ProductsRepoTest : BaseTest() {
     fun `Should log error and return Answer Success with product from database if a server error occurred while fetching the product from API and database is not emoty`() {
         runBlockingTest {
             val product = Product("1", "Test name", "$", 50.0, "Test description", "url")
-            whenever(productsApi.getProductById(any())) doReturn Response.error(400, "".toResponseBody())
+            whenever(productsApi.getProductById(any())) doReturn Response.error(
+                400,
+                "".toResponseBody()
+            )
             whenever(productsDao.getProductById(any())) doReturn product
 
             val answer = productsRepo.getProductById("1")
@@ -196,7 +199,10 @@ class ProductsRepoTest : BaseTest() {
     @Test
     fun `Should log error and return Answer Failure with ServerResponseError if a server error occurred while fetching the product from API and can't be found in database`() {
         runBlockingTest {
-            whenever(productsApi.getProductById(any())) doReturn Response.error(400, "".toResponseBody())
+            whenever(productsApi.getProductById(any())) doReturn Response.error(
+                400,
+                "".toResponseBody()
+            )
             whenever(productsDao.getProductById(any())) doReturn null
 
             val answer = productsRepo.getProductById("1")

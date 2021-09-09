@@ -57,3 +57,4 @@ dependencies {
 }
 
 apply from: 'dependencies.gradle'
+apply from: 'ktlint.gradle'
