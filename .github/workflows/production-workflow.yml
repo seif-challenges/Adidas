@@ -56,9 +56,9 @@ jobs:
         id: signArtifact
         uses: r0adkll/sign-android-release@v1.0.1
         with:
-          releaseDirectory: app/build/outputs/apk/debug
+          releaseDirectory: app/build/outputs/apk/production
           alias: ${{ secrets.KEY_ALIAS }}
-          signingKeyBase64: ${{ secrets.DEBUG_KEY_BASE64 }}
+          signingKeyBase64: ${{ secrets.PROD_KEY_BASE64 }}
           keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
           
@@ -70,10 +70,11 @@ jobs:
           tag_prefix: prod-v
       
       - name: Upload binaries to release
+        if: false == contains(github.event.head_commit.message, '[norelease]')
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: app/build/outputs/apk/production/app-production*.apk
+          file: app/build/outputs/apk/production/app-production-unsigned.apk
           asset_name: app_adidas_${{ steps.release.outputs.version }}.apk
           tag: ${{ steps.release.outputs.version }}
           overwrite: true
