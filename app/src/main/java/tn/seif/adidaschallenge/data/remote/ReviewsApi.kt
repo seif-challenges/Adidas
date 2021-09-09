@@ -1,7 +1,11 @@
 package tn.seif.adidaschallenge.data.remote
 
 import retrofit2.Response
-import retrofit2.http.*
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.Path
 import tn.seif.adidaschallenge.data.models.Review
 
 /**

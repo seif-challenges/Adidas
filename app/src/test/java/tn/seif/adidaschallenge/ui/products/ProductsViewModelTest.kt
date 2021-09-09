@@ -3,7 +3,11 @@ package tn.seif.adidaschallenge.ui.products
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
-import org.mockito.kotlin.*
+import org.mockito.kotlin.any
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.verify
+import org.mockito.kotlin.whenever
 import tn.seif.adidaschallenge.BaseTest
 import tn.seif.adidaschallenge.data.models.Product
 import tn.seif.adidaschallenge.data.remote.ServerResponseException
