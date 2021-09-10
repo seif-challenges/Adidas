@@ -63,10 +63,6 @@ jobs:
           keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
         
-      - name: just echo a message
-        run: |
-          echo "Hello ${{ steps.signArtifact.outputs.signedReleaseFile }}"
-        
       - name: Create release
         id: release
         uses: rymndhng/release-on-push-action@master
