@@ -55,7 +55,7 @@ jobs:
       - name: Sign artifact
         if: false == contains(github.event.head_commit.message, '[norelease]')
         id: signArtifact
-        uses: r0adkll/sign-android-release@v1.0.1
+        uses: r0adkll/sign-android-release@v1
         with:
           releaseDirectory: app/build/outputs/apk/debug
           alias: ${{ secrets.KEY_ALIAS }}
