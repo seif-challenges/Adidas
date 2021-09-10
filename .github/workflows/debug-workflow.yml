@@ -6,6 +6,8 @@ name: Debug workflow
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   pull_request:
+    branches: [ master ]
+    types: [ closed ]
   push:
     branches: [ master ]
 
@@ -73,7 +75,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: app/build/outputs/apk/debug/app-debug.apk
+          file: ${{steps.signArtifact.outputs.signedReleaseFile}}
           asset_name: app_adidas_${{ steps.release.outputs.version }}.apk
           tag: ${{ steps.release.outputs.version }}
           overwrite: true
