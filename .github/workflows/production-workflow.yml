@@ -8,8 +8,6 @@ on:
   pull_request:
     branches: [ production ]
     types: [ closed ]
-  push:
-    branches: [ production ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -74,7 +72,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: app/build/outputs/apk/production/app-production-unsigned.apk
+          file: ${{steps.signArtifact.outputs.signedReleaseFile}}
           asset_name: app_adidas_${{ steps.release.outputs.version }}.apk
           tag: ${{ steps.release.outputs.version }}
           overwrite: true
