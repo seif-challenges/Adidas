@@ -4,7 +4,7 @@ name: Production workflow
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
+  # Triggers the workflow on merged pull request for the production branch.
   pull_request:
     branches: [ production ]
     types: [ closed ]
@@ -52,7 +52,7 @@ jobs:
         
       - name: Sign artifact
         id: signArtifact
-        uses: r0adkll/sign-android-release@v1.0.1
+        uses: r0adkll/sign-android-release@v1
         with:
           releaseDirectory: app/build/outputs/apk/production
           alias: ${{ secrets.KEY_ALIAS }}
