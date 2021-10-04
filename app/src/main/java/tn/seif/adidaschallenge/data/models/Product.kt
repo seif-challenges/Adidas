@@ -14,3 +14,6 @@ data class Product(
     val description: String,
     val imgUrl: String
 )
+
+val product = Product("1", "", "", 0.0, "", "")
+val product2 = product.copy(id = "2")
